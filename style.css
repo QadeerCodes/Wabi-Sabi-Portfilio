@@ -1,0 +1,224 @@
+
+:root {
+  --ink: #2B2B2B;
+  --paper: #F5F1E8;
+  --vermillion: #B94A48;
+  --bamboo: #7A8471;
+  --shadow: #C7B9A3;
+}
+
+* { scroll-behavior: smooth; }
+
+body {
+  background: var(--paper);
+  background-image: 
+    linear-gradient(rgba(199,185,163,0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(199,185,163,0.08) 1px, transparent 1px);
+  background-size: 20px 20px;
+  color: var(--ink);
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 300;
+  line-height: 1.8;
+}
+
+h1, h2, h3 {
+  font-family: 'Shippori Mincho', serif;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  padding: 2rem;
+}
+
+.hero h1 {
+  font-size: clamp(3rem, 8vw, 6rem);
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.hero h1::after {
+  content: '';
+  display: block;
+  width: 120px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--ink), transparent);
+  margin: 2rem auto 0;
+}
+
+.vertical-text {
+  writing-mode: vertical-rl;
+  position: absolute;
+  right: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  letter-spacing: 0.3em;
+  opacity: 0.4;
+}
+
+.ink-line {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--ink) 20%, var(--ink) 80%, transparent);
+  margin: 6rem 0;
+  opacity: 0.6;
+}
+
+.about-img {
+  border-radius: 50%;
+  border: 4px solid var(--shadow);
+  box-shadow: 8px 8px 0 rgba(43,43,43,0.1);
+  max-width: 280px;
+  filter: sepia(0.1) contrast(0.95);
+}
+
+.dropcap::first-letter {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 4.5rem;
+  float: left;
+  line-height: 1;
+  padding-right: 8px;
+  color: var(--vermillion);
+}
+
+.project-band {
+  padding: 4rem 0;
+}
+
+.project-img {
+  clip-path: polygon(0 2%, 3% 0, 97% 1%, 100% 4%, 98% 96%, 100% 100%, 3% 99%, 0 97%);
+  box-shadow: 6px 6px 0 rgba(43,43,43,0.08);
+  transition: transform 0.3s ease;
+}
+
+.project-img:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 10px 10px 0 rgba(43,43,43,0.12);
+}
+.contact-section {
+  text-align: center;
+  padding: 6rem 0;
+}
+
+.btn-seal {
+  background: var(--vermillion);
+  border: none;
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+  color: var(--paper);
+  font-family: 'Shippori Mincho', serif;
+  font-size: 1.1rem;
+  box-shadow: 0 6px 12px rgba(185,74,72,0.3);
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-seal:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(185,74,72,0.4);
+  background: #A03E3C;
+}
+.footer-stamp {
+  width: 60px;
+  height: 60px;
+  background: var(--vermillion);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--paper);
+  font-family: 'Shippori Mincho', serif;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (max-width: 768px) {
+  .vertical-text { display: none; }
+  .hero h1 { font-size: 3rem; }
+  .img{width: 350px; }
+}
+.hero-img{
+  width: min(250px, 70vw);
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 6px solid var(--shadow);
+  display: block;
+  margin: 1rem auto;
+}
+
+.about-img{
+  width: 100%;
+  max-width: 280px;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid var(--shadow);
+  box-shadow: 8px 8px 0 rgba(43,43,43,0.1);
+}
+
+.project-img{
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  object-fit: cover;
+  clip-path: polygon(
+    0 2%,3% 0,97% 1%,100% 4%,
+    98% 96%,100% 100%,3% 99%,0 97%
+  );
+  box-shadow: 6px 6px 0 rgba(43,43,43,0.08);
+  transition: all .3s ease;
+}
+
+@media (max-width:768px){
+
+  .vertical-text{
+    display:none;
+  }
+
+  .hero{
+    min-height:90vh;
+    padding:1.5rem;
+  }
+
+  .hero h1{
+    font-size:2.5rem;
+  }
+
+  .hero-img{
+    width:180px;
+  }
+
+  .about-img{
+    max-width:220px;
+  }
+
+  .project-band{
+    text-align:center;
+  }
+
+  .btn-seal{
+    width:75px;
+    height:75px;
+    font-size:1rem;
+  }
+}
